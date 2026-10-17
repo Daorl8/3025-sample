@@ -15,8 +15,10 @@
 └─ CHANGELOG.md / STRUCTURE.md
 ```
 
-## 섹션 순서
-헤더(`#head`, 스크롤 시 `.solid`) → 히어로(`#slides` + `#onair`) → `#liner` → `#side-a`(밝은 면) → `#side-b`(`#record`) → `#collection`(`.strip`은 wrap 밖) → `#studio` → `#visit` → 푸터.
+## 섹션 순서 (v0.2 흑백)
+헤더(`#head`, 스크롤 시 `.solid`) → 히어로(`#slides` + `#onair`) → `#about`(간판 재현 `.sign` + 소개글) → `#side-a`(글 고정 + 사진 묶음) → `#side-b`(`.full` 사진 가득 + `.row4`) → `#collection`(`.strip`은 wrap 밖) → `#studio`(사진 반 · 글 반) → `#visit` → 푸터.
+- 되돌리기: `index_v011_amber.html` = 직전 금색 · 갈색 버전(CHANGELOG v0.2 참고).
+- 사진 채도: `main img:not(.logo){ filter:saturate(.6) … }` 한 줄. 지우면 원래 색.
 
 ## 영업시간 수정 (3곳)
 1. 스크립트 `plan` (분 단위: 7:30=450, 14:30=870, 17:00=1020, 22:00=1320 · 0=일 … 6=토)

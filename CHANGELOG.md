@@ -1,5 +1,15 @@
 # CHANGELOG · 3025 Seoul (@3025_seoul)
 
+## v0.2 · 2026-10-17 (다올: "AI 틱하고 짜침" → 흑백 + 금색 강조, 공식 · 장식 제거) · 시험판
+- **되돌리기용 백업**: 직전 v0.1.1 = `index_v011_amber.html`(배포 제외 대상). 되돌릴 땐 이 파일을 index.html로 바꾸고 .assetsignore에서 `tf-pastels.webp` 줄 삭제, favicon.png · og-3025.jpg · tf-pretendard.woff2는 지금 것을 그대로 써도 됨(서브셋에 v0.1.1 글자까지 포함).
+- **색**: 갈색 배경 → 무채색. 검정 #0D0D0D · 면 #161616 · 글자 #EDEDED(16.6:1) · 보조 #A3A3A3(7.7:1). 금색 #D0924A는 강조에만: 히어로 이탤릭 1줄 · 주 버튼 2개 · On air 점 · Side A/B 표시 · 포커스 링. 사진은 채도 60%로 낮춰 흑백 화면과 맞춤(CSS 한 줄, 주석 표시).
+- **제목 공식 제거**: "세리프 + 금색 이탤릭 둘째 줄" 7곳 → 이탤릭은 히어로 1곳만. 나머지는 간판처럼 대문자 세리프 한 단어(COFFEE · LP BAR · ARCHITECTURE INTERIOR DESIGN STUDIO · TOEGYE-RO 271). 제가 쓴 영어 말장난 카피(on repeat · after five · we keep · for the city 등) 전부 삭제.
+- **콘셉트 장식 축소**: CSS 레코드 · Liner notes · 트랙리스트(A1–B2) · 사진 영문 캡션 · No. 번호 · 섹션마다 붙던 자간 넓은 라벨 삭제. Side A/B · 영업 상태 표시는 실용적이라 유지(문구 "다음 재생" → "다음 오픈").
+- **About = 간판 재현**: 매장 간판 문구 그대로(3025 / COFFEES / A DAY · ARCHITECTURE · INTERIOR DESIGN STUDIO · LP BAR · WINE & CRACKER / MUSIC SPACE)를 테두리 판으로 + 사장님 소개글 원문 + 작은 로고.
+- **섹션 리듬 다양화**: Side A = 왼쪽 글(고정) · 오른쪽 사진 묶음 / Side B = 사진 한 장 화면 가득 + 아래 4장 띠 / Collection = 제목 없이 한 줄 + 띠(캡션 한국어) / Studio = 사진 반 · 글 반 / Visit = 큰 주소.
+- 한국어 문구는 사장님 소개글 원문만 사용(Side A "신선하고 깊은 맛의 커피." · Side B 소개 문장).
+- favicon · og 이미지를 무채색 버전으로 다시 만듦. Pretendard 서브셋 재생성(누락 0, 라이선스 보존). 사진 tf-pastels.webp 미사용 → .assetsignore.
+
 ## v0.1.1 · 2026-10-17 (외부 리뷰 반영)
 - 영업 상태 표시의 기본 문구 "Now playing" → "Side A 07:30 · Side B 17:00". JS가 꺼진 환경에서 영업 중이 아닌데 재생 중처럼 보이던 문제 해결(JS가 켜지면 곧바로 실제 상태로 바뀜).
 - 레코드 회전: setInterval은 유지(모션 규칙)하고, 레코드가 화면 밖이면 그 회차를 건너뜀 → 화면 밖에서 스타일 변경 0(배터리 절약). 리뷰가 제안한 CSS @keyframes 전환은 setInterval 규칙 때문에 채택하지 않음.
