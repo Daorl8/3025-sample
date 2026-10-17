@@ -251,7 +251,7 @@ figcaption{ padding:10px 0 0; font-size:.72rem; letter-spacing:.18em; text-trans
         <a class="btn amber" href="https://map.naver.com/p/entry/place/1298470191" target="_blank" rel="noopener">Naver Map <small>길찾기</small></a>
         <a class="btn line" href="#side-a">Side A · B <small>영업시간</small></a>
       </div>
-      <p class="onair" id="onair" role="status" aria-live="polite"><i aria-hidden="true"></i><span id="onair-t">Now playing</span></p>
+      <p class="onair" id="onair" role="status" aria-live="polite"><i aria-hidden="true"></i><span id="onair-t">Side A 07:30 · Side B 17:00</span></p>
     </div>
   </section>
 
@@ -435,7 +435,11 @@ figcaption{ padding:10px 0 0; font-size:.72rem; letter-spacing:.18em; text-trans
 
   /* Side B 레코드 회전 (setInterval · 33rpm 느낌으로 천천히) */
   var rec=document.getElementById('record'), deg=0;
-  if(rec) setInterval(function(){ deg=(deg+1.2)%360; rec.style.transform='rotate('+deg+'deg)'; }, 40);
+  if(rec) setInterval(function(){
+    var r=rec.getBoundingClientRect();
+    if(r.bottom<0 || r.top>window.innerHeight) return;   /* 화면 밖이면 쉼 (배터리 절약) */
+    deg=(deg+1.2)%360; rec.style.transform='rotate('+deg+'deg)';
+  }, 40);
 
   /* 지금 재생 중: 한국 시간 기준 영업 상태 (네이버 영업시간)
      0=일 … 6=토 · 분 단위 [시작, 끝, 사이드] */
